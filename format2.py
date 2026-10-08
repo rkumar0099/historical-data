@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 
 def get_src_file(symbol, year, month, day):
-    interval = "1m"
+    interval = "1h"
     basepath = f"../data/{year}/{month}/futures/um/daily/klines/{symbol.upper()}/{interval}"
     if (day < 10):
         day = "0" + str(day)
@@ -22,6 +22,16 @@ def get_filename(symbol, date):
     month = date.split("-")[1]
     return f"{basepath}\\{year}\\{month}\\{symbol}\\{date}.csv"
     #return f"{basepath}\\{date}\\{symbol}.csv"
+
+def test_binance_api():
+    value = 1787852700000
+    value = int(value/1000)
+    dt_obj = datetime.fromtimestamp(value)
+    print(dt_obj.__str__())
+
+#test_binance_api()
+
+
 
 def format_file(symbol, year, month, day, interval):
     rows = []
@@ -102,7 +112,7 @@ def print_days(start=30, end=1):
     print(days)
 
 
-year = "2022"
+year = "2026"
 month = "12"
 years_symbols = {
     "2021": ['BTCUSDT', 'ETHUSDT', 'ALGOUSDT', 'SOLUSDT', 'DOGEUSDT', '1000PEPEUSDT', 'AAVEUSDT', 'AVAXUSDT', 'BNBUSDT', 'FILUSDT', 'FTMUSDT', 'WLDUSDT', 'XLMUSDT', 'XRPUSDT', 'GRTUSDT', 'XMRUSDT', 'UNIUSDT', "ADAUSDT"]
@@ -155,19 +165,20 @@ days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2
 #               "FETUSDT", "GRASSUSDT", "ADAUSDT", "BAKEUSDT", "BOMEUSDT", "1000BONKUSDT", 
 #               "1000FLOKIUSDT", "1000SATSUSDT"]
 #symbols = ["WIFUSDT"]
-year = "2026"
+year = "2020"
 #month = "02"
 months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-#months = ["04", "05", "06", "07"]
+#months = ["12", "11", "10"]
+#months = ["12", "11", "10", "09"]
 #symbols = ["1000BONKUSDT", "1000FLOKIUSDT", "1000SATSUSDT"]
 #symbols = ["ADAUSDT", "BAKEUSDT", "BOMEUSDT"]
 #symbols = ["CHZUSDT", "FETUSDT", "GRASSUSDT"]
 #symbols = ["IPUSDT", "JASMYUSDT", "JUPUSDT", "KAITOUSDT", "LINKUSDT", "LTCUSDT", "MATICUSDT", "MEMEUSDT", "MEWUSDT", "NEARUSDT", "NOTUSDT", "ONDOUSDT"]
-symbols = ['BTCUSDT']
+symbols = ['ETHUSDT']
 for month in months:
     for symbol in symbols:
         for day in days:
-            format_file(symbol, year, month, day, "1m")
+            format_file(symbol, year, month, day, "60m")
 #df = format_timeframe("60m", symbol, year, month, days)
 #print(df)
 

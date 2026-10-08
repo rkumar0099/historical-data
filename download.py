@@ -29,7 +29,7 @@ def fetch_data(symbol, year, month, day_start, day_end):
         asset_class="um",  # spot, um, cm
         path_dir_where_to_dump=f"../data/{year}/{month}",
         data_type="klines",  # aggTrades, klines, trades
-        data_frequency="1m",  # argument for data_type="klines"
+        data_frequency="1h",  # argument for data_type="klines"
     )
 
     data_dumper.dump_data(
@@ -41,7 +41,7 @@ def fetch_data(symbol, year, month, day_start, day_end):
     )
 
 
-year = "2026"
+year = "2020"
 #months = {"01": (31, 1), "02": (28, 1), "03": (31, 1), "04": (30, 1), "05": (31, 1), "06": (30, 1), "07": (31, 1), "08": (31, 1), "09": (30, 1), "10": (31, 1), "11": (30, 1), "12": (31, 1)}
 #months = {"01": (31, 1), "02": (28, 1), "03": (31, 1), "04": (30, 1)}
 #symbol = "BTCUSDT"
@@ -53,14 +53,17 @@ year = "2026"
 #               "1000FLOKIUSDT", "1000SATSUSDT"]
 month = "04"
 #symbols = ["WIFUSDT"]
-#months = {"12": (31, 1), "11": (30, 1), "10": (31, 1), "09": (30, 1), "08": (31, 1), "07": (31, 1), "06": (30, 1), "05": (31, 1), "04": (30, 1), "03": (31, 1), "02": (28, 1), "01": (31, 1)}
-#months = {"01": (31, 1)}
+months = {"12": (31, 1), "11": (30, 1), "10": (31, 1), "09": (30, 1), "08": (31, 1), "07": (31, 1), "06": (30, 1), "05": (31, 1), "04": (30, 1), "03": (31, 1), "02": (28, 1), "01": (31, 1)}
+#months = {"10": (30, 3)}
+#months = {"03": (31, 1), "02": (28, 1), "01": (31, 1)}
+#months = {"09": (30, 1), "08": (31, 1)}
 #months = {"12": (31, 1), "11": (30, 1), "10": (31, 1)}
-months = {"07": (31, 1), "06": (30, 1), "05": (31, 1), "04": (30, 1)}
-#months = {"10": (31, 1), "09": (30, 1), "08": (31, 1), "07": (31, 1), "06": (30, 1), "05": (31, 1), "04": (30, 1), "03": (31, 1), "02": (28, 1), "01": (31, 1)}
+#months = {"01": (31, 1)}
+#months = {"12": (31, 1), "11": (30, 1), "10": (31, 1)} 
+#months = {"09": (30, 1), "08": (31, 1), "07": (31, 1), "06": (30, 1), "05": (31, 1), "04": (30, 1), "03": (31, 1), "02": (28, 1), "01": (31, 1)}
 start = 1
 end=30
-symbols = ['BTCUSDT']
+symbols = ['ETHUSDT']
 #symbols = ['ETHUSDT', 'ALGOUSDT', 'SOLUSDT', 'DOGEUSDT', '1000PEPEUSDT', 'AAVEUSDT', 'AVAXUSDT', 'BNBUSDT', 'FILUSDT', 'FTMUSDT', 'WLDUSDT', 'XLMUSDT', 'XRPUSDT', 'GRTUSDT', 'XMRUSDT', 'UNIUSDT', "ADAUSDT"]
 #symbols = ["ADAUSDT", "BAKEUSDT", "BOMEUSDT"]
 #symbols = ["CHZUSDT", "FETUSDT", "GRASSUSDT"]
